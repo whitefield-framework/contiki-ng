@@ -8,7 +8,9 @@ WF_DIR=../../../../..
 endif
 
 include $(WF_DIR)/config.inc
-CFLAGS += -I$(WF_DIR)/src
+CFLAGS += -I$(WF_DIR)/src \
+		  -DLOG_CONF_LEVEL_RPL=4 \
+		  -DLOG_CONF_LEVEL_6LOWPAN=4
 TARGET_LIBFILES += -L$(WF_DIR)/bin -lwf_commline -ldl build/whitefield/contiki-ng-whitefield.a
 
 CONTIKI_TARGET_DIRS = . dev

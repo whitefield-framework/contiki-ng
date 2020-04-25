@@ -187,6 +187,7 @@ PROCESS_THREAD(wfradio_process, ev, data)
 /*---------------------------------------------------------------------------*/
 static int init(void)
 {
+    process_start(&wfradio_process, NULL);
     LOG_INFO("initing wfradio\n");
 	if(cl_init(MTYPE(STACKLINE, gNodeID), CL_ATTACHQ)!=CL_SUCCESS) {
 		LOG_ERR("commline init failed\n");
@@ -208,6 +209,9 @@ static radio_result_t get_value(radio_param_t param, radio_value_t *value)
 			return RADIO_RESULT_OK;
 		case RADIO_PARAM_LAST_LINK_QUALITY:
 			return RADIO_RESULT_OK;
+        case RADIO_CONST_MAX_PAYLOAD_LEN:
+            *value = (radio_value_t)125;
+            return RADIO_RESULT_OK;
 		default:
 			return RADIO_RESULT_NOT_SUPPORTED;
 	}
