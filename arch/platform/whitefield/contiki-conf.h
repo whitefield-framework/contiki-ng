@@ -76,10 +76,15 @@ typedef unsigned int uip_stats_t;
 #define NETSTACK_CONF_RADIO   wfradio_driver
 #endif /* NETSTACK_CONF_RADIO */
 
+#ifndef NETSTACK_CONF_MAC
+#define NETSTACK_CONF_MAC wfmac_driver
+#endif
+
 #define NETSTACK_CONF_LINUXRADIO_DEV "wpan0"
 
 /* configure network size and density */
 #ifndef NETSTACK_MAX_ROUTE_ENTRIES
+#define UIP_CONF_MAX_ROUTES 300
 #define NETSTACK_MAX_ROUTE_ENTRIES   300
 #endif /* NETSTACK_MAX_ROUTE_ENTRIES */
 #ifndef NBR_TABLE_CONF_MAX_NEIGHBORS

@@ -292,7 +292,6 @@ platform_init_stage_three()
 #ifdef __CYGWIN__
   process_start(&wpcap_process, NULL);
 #endif
-  process_start(&wfradio_process, NULL);
 
   set_global_address();
 
