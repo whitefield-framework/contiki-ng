@@ -103,7 +103,7 @@ int uip_ipaddr_to_str(const uip_ipaddr_t *addr, char *buf, int buflen)
 
 int cmd_def_route(uint16_t id, char *buf, int buflen)
 {
-    uip_ipaddr_t *ipaddr = uip_ds6_defrt_choose();
+    const uip_ipaddr_t *ipaddr = uip_ds6_defrt_choose();
     if (!ipaddr) {
         return snprintf(buf, buflen, "NO_DEF_ROUTE");
     }
